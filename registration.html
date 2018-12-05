@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+        div {
+            display:inline-block;
+            vertical-align: top;
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+        <h2>Login and Resigstration</h2>
+        <form action="/welcome" method="POST">
+            <p>First Name:<input type='text' name="firstname" value='D'></p><br>
+            <p>Last Name:<input type='text' name="lastname" value='Strange'></p><br>
+            <p>Email:<input type='text' name="email" value='dstrange@shambala.com'></p><br>
+            <p>Password:<input type='text' name='password'></p><br>
+            <p>Confirm Password:<input type='text' name="conpassword"></p><br>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for i in messages %}
+                        <p class="error">{{i}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <input type='submit' value='Submit'>
+        </form>
+        </div>
+        <div>
+            <h2> Login here!</h2>
+            <form action='/login' method="POST">
+                <p>Email:<br><input type='text' name='email'></p>
+                <p>Password:<br><input type='text' name='password'></p>
+                <input type='submit' value='login'>
+            </form>
+        </div>
+        </form>
+    </body>
+</html>
