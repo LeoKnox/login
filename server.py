@@ -65,6 +65,7 @@ def login():
 
 @app.route('/logout', methods=['POST'])
 def logout():
+    session.clear()
     return render_template('registration.html')
 
 if __name__=='__main__':
